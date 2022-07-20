@@ -1,10 +1,5 @@
-DROP TABLE IF EXISTS `musicians`;
 DROP TABLE IF EXISTS `records`;
-
-CREATE TABLE IF NOT EXISTS `musicians` (
-  `id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  `name` VARCHAR(200) NOT NULL)
-ENGINE = InnoDB;
+DROP TABLE IF EXISTS `musicians`;
 
 CREATE TABLE IF NOT EXISTS `records` (
 `id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
@@ -18,20 +13,11 @@ ON DELETE NO ACTION
 ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
-INSERT INTO `musicians` (name)
-VALUES(('MUSIQUE AMBIANTE FRANÇAISE - ')),
-(('APOLLO NOIR - ')),
-(('JOAKIM - ')),
-(('GUILLAUME TEYSSIER - ')),
-(('MAESTRO - ')),
-(('DYE - ')),
-(('PRINCIPLES OF GEOMETRY - ')),
-(('PRINCIPLES OF GEOMETRY - ')),
-(('DYE - ')),
-(('GUILLAUME TEYSSIER - ')),
-(('DYE - ')),
-(('PRINCIPLES OF GEOMETRY - '))
-;
+CREATE TABLE IF NOT EXISTS `musicians` (
+  `id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  `bandname` VARCHAR(200) NOT NULL)
+ENGINE = InnoDB;
+
 
 INSERT INTO `records` (image, title, idMusician)
 VALUES('https://f4.bcbits.com/img/a0118730547_10.jpg', 'VOL. 1', 2),
@@ -46,3 +32,20 @@ VALUES('https://f4.bcbits.com/img/a0118730547_10.jpg', 'VOL. 1', 2),
 ('https://f4.bcbits.com/img/a0210532099_10.jpg', 'LA FEMME INVISIBLE', 3),
 ('https://f4.bcbits.com/img/a4182643800_10.jpg', 'COCKTAIL CITRON', 4),
 ('https://f4.bcbits.com/img/a3359291919_10.jpg', '', 1);
+
+INSERT INTO `musicians` (bandname)
+VALUES(('MUSIQUE AMBIANTE FRANÇAISE - ')),
+(('APOLLO NOIR - ')),
+(('JOAKIM - ')),
+(('GUILLAUME TEYSSIER - ')),
+(('MAESTRO - ')),
+(('DYE - ')),
+(('PRINCIPLES OF GEOMETRY - ')),
+(('PRINCIPLES OF GEOMETRY - ')),
+(('DYE - ')),
+(('GUILLAUME TEYSSIER - ')),
+(('DYE - ')),
+(('PRINCIPLES OF GEOMETRY - '))
+;
+
+
