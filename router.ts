@@ -3,15 +3,27 @@ import recordsController from './controllers/records';
 import { Express } from 'express';
 
 const setupRoutes = (server: Express) => {
-  // Musicians
+  // MUSICIANS //
   // get musicians
   server.get('/api/musicians', musiciansController.getAllMusicians);
-  // get address by id
+  // get musician by id
   server.get('/api/musicians/:idMusician', musiciansController.getMusicianById);
+  // // add musician
+  server.post(
+    '/api/musicians',
+    musiciansController.validateMusician,
+    musiciansController.addMusician
+  );
 
+  // RECORDS //
   server.get('/api/records', recordsController.getAllRecords);
   // get address by id
   server.get('/api/records/:idRecord', recordsController.getRecordById);
+  server.post(
+    '/api/records',
+    recordsController.validateRecord,
+    recordsController.addRecord
+  );
 };
 
 export default setupRoutes;
