@@ -14,7 +14,11 @@ const corsOptions: cors.CorsOptions = {
   // for cookies
   credentials: true,
   // must-have for frontend to communicate with API
-  origin: ['https://test-deploy-fullstack.vercel.app', 'http://localhost:3000'],
+  origin: [
+    'https://test-deploy-fullstack.vercel.app',
+    'http://localhost:3000',
+    'http://localhost:3001',
+  ],
 };
 
 // middleware cors

@@ -3,7 +3,8 @@ import { ResultSetHeader } from 'mysql2';
 import IRecord from '../interfaces/IRecord';
 
 const getAllRecords = async (sortBy = ''): Promise<IRecord[]> => {
-  let sql = 'SELECT * FROM records';
+  let sql =
+    'SELECT * FROM records INNER JOIN musicians ON records.idMusician = musicians.id';
   if (sortBy) {
     sql += ` ORDER BY ${sortBy}`;
   }
@@ -14,7 +15,10 @@ const getAllRecords = async (sortBy = ''): Promise<IRecord[]> => {
 const getRecordById = async (idRecord: number): Promise<IRecord> => {
   const [results] = await connection
     .promise()
-    .query<IRecord[]>('SELECT * FROM records WHERE id = ?', [idRecord]);
+    .query<IRecord[]>(
+      'SELECT * FROM records INNER JOIN musicians ON records.idMusician = musicians.id WHERE records.id = ?',
+      [idRecord]
+    );
   return results[0];
 };
 
